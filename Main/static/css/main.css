@@ -5,22 +5,21 @@ html {
   height: 100vh;
 }
 #Modal{
-    width: 50%;
-    height: 100vh;
-    left: 25%;
-    top: 15%;
-    
+    width: 40%;
+    height: 80vh;
+    left: 30%;
+    top: 12%;
+    bottom: 15%;
+  
 }
 #ModalTitle{
     text-align: center;
     font-size: 25px;
     font-family: 'Montserrat', sans-serif;
-    color: rgb(60, 61, 70);
+    color: rgb(85, 87, 99);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-weight: bold;
+    font-weight: normal;
     letter-spacing: 1px;
-
-  
 }
 #ModalBody{
     width: 98%;
@@ -29,7 +28,7 @@ html {
     margin-bottom: 10px;
     text-align: center;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-weight: bold;
+    font-weight: normal;
 }
 h3{
     font-family: 'Montserrat', sans-serif;
@@ -51,11 +50,11 @@ h3{
     padding-top: 100px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
   }
 
   .modal-content-reg {
@@ -65,6 +64,7 @@ h3{
     border: 1px solid #888;
     width: 80%;
   }
+
 
   .close {
     color: #aaaaaa;
@@ -82,8 +82,7 @@ h3{
 
 
   /* Форма регистрации */
-  
-  
+
 .clearfix:after {
     content: "";
     display: block;
@@ -101,7 +100,7 @@ h3{
     margin: 3% auto 0;
     position: relative;
     z-index: 1;
-    border-top: 5px solid #f5ba1a;
+    border-top: 5px solid #474747;
     -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -324,7 +323,6 @@ h3{
     border-color: #000000;
     outline: none;
   }
-  
   .select_arrow {
     position: absolute;
     top: calc(50% - 4px);
@@ -336,7 +334,6 @@ h3{
     border-style: solid;
     border-color: #7b7b7b transparent transparent transparent;
   }
-  
   .select_option select:hover + .select_arrow, .select_option select:focus + .select_arrow {
     border-top-color: #000000;
   }
@@ -486,10 +483,6 @@ h3{
     }
   }
 
-
-
-
-
   .dynamic_fields, .dynamic_fields * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -518,11 +511,9 @@ h3{
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-
 .pull-right {
     float: right;
 }
-
 .table {
     display: table;
     width: 100%;
@@ -531,17 +522,14 @@ h3{
 .student:last-child .table {
     padding-bottom: 0;
 }
-
 .table .cell {
     display: table-cell;
     vertical-align: top;
 }
-
 .table .cell:last-child {
     width: 1px;
     padding-left: 10px;
 }
-
 #AddBtn {
     display: inline-block;
     padding: 6px 12px;
@@ -563,21 +551,20 @@ h3{
     border: 1px solid transparent;
     border-radius: 4px;
     font-family: monospace;
+    background-color: #8a8a8a;
+    border-color: #8a8a8a;
 }
-
 .btn-danger {
     color: #fff;
     background-color: #d9534f;
     border-color: #d43f3a;
 }
-
 .btn-success {
     color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
+    background-color: #8a8a8a;
+    border-color: #8a8a8a;
     margin-top: 10px;
 } 
-
 .slide {
   display: block;
   width: 400px; 
@@ -659,15 +646,12 @@ h3{
 .slide:hover .slide-content:after {
   left: 50.4%;
 }
-
-
 .form__group {
     position: relative;
     padding: 15px 0 0;
     margin-top: 10px;
     width: 100%;
-  }
-  
+}
   .form__field {
     font-family: inherit;
     width: 100%;
@@ -675,7 +659,7 @@ h3{
     border-bottom: 2px solid #9b9b9b;
     outline: 0;
     font-size: 1.3rem;
-    color: #fff;
+    color: rgb(0, 0, 0);
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.2s;
@@ -687,8 +671,7 @@ h3{
     font-size: 1.3rem;
     cursor: text;
     top: 20px;
-  }
-  
+  } 
   .form__label {
     position: absolute;
     top: 0;
@@ -697,7 +680,6 @@ h3{
     font-size: 1rem;
     color: #9b9b9b;
   }
-  
   .form__field:focus {
     padding-bottom: 6px;
     font-weight: 700;
@@ -711,7 +693,7 @@ h3{
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    color: #CE6802;
+    color: #000000;
     font-weight: 700;
   }
   
@@ -723,51 +705,277 @@ h3{
   /* Кнопки действия */
 .registration{
     float: left;
-    background-color: #F5BA1A;
-    border: none;
+    background-color: transparent;
+    border: 1px solid rgb(175, 125, 15);
     outline: none;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 5px 5px 5px 5px;
     margin-left: 5%;
     margin-bottom: 1%;
     margin-top: 3%;
     border-radius: 5px;
     width: 25%;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 .registration:hover{
-    background-color: #b98e15;
+    background-color:  rgb(175, 125, 15);
+    color: #ffffff;
 
 }
 .enter{
     float: right;
-    background-color: #0D6EFD;
-    border: none;
+    background-color: transparent;
+    border: 1px solid rgb(7, 168, 29);
     outline: none;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 5px 5px 5px 5px;
     margin-right: 5%;
     margin-bottom: 1%;
     margin-top: 3%;
     border-radius: 5px;
     width: 25%;
-    letter-spacing:2px;
+    letter-spacing:1px;
 }
 .enter:hover{
-    background-color: #0a4fb6;;
+    background-color: rgb(7, 168, 29);
+    color: white;
 }
 .restore
 {
+  text-decoration: none !important;
   border: none;
   background: transparent;
-  border-bottom: 2px #F5BA1A dashed;
+  border-bottom: 2px #7e0c0c dashed;
   text-align: center;
   margin-bottom: 1%;
   position: relative;
   left: 50%;
   transform: translate(-50%, 0);
-  color: rgb(97, 97, 97)
+  color: rgb(97, 97, 97);
+  text-decoration: none;
 }
 .restore:hover{
     color: #000000;
+}
+.nav-link{
+
+    position: absolute;
+    right: 1%;
+    bottom:15%;
+}
+.send{
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+  padding: 15px 15px 15px 15px;
+  margin-top: 5%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+.send:hover{
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+}
+.main_reg{
+  width: 60%;
+  background: transparent;
+  border: 1px solid #000000;
+  font-family: 'Montserrat', sans-serif;
+  padding: 15px 15px 15px 15px;
+  letter-spacing: 1px;
+  color: black;
+}
+.main_reg:hover{
+  background: #000000;
+  color: #ffffff;
+}
+/* Конец кнопок */
+
+/* Подвал */
+section {
+  width: 100%;
+  display: inline-block;
+  background: rgb(255, 255, 255);
+  height: 50vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-distributed{
+	background: rgb(255, 255, 255);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+
+.footer-distributed h3{
+	color:  #000000;
+	font: normal 36px 'Open Sans', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:  lightseagreen;
+}
+
+.footer-distributed .footer-links{
+	color:  #000000;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #222;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #ffffff;
+	color: #000000;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #000000;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  lightseagreen;
+	text-decoration: none;;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #000000;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #000000;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}
+/* Конец подвала */
+.recovery-block{
+  width: 50%;
 }

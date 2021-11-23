@@ -1,32 +1,17 @@
+{%extends "Main/base.html"%}
 {%load static%}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <link rel="stylesheet"  href="{% static 'css/main.css' %}">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://use.fontawesome.com/be0bfa2503.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="{% static 'flame.ico' %}">
-
-    {% block upper_links %}{% endblock %}
-
-    <title>{% block title %}IBCA{% endblock %}</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}IBCA | Восстановление{% endblock %}</title>
 </head>
 <body>
-
     {% block pagecontent %}
-  
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
         <div class="container"> <a class="navbar-brand d-flex align-items-center" href="#">
             <svg width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -45,7 +30,8 @@
                      </button>
             <div class="collapse navbar-collapse" id="navbar4">
                 <ul class="navbar-nav mr-auto pl-lg-4">
-                    <li class="nav-item"> <a class="nav-link" href="#" onclick="open_modal_signin()"><i class="fa fa-user-circle"></i> Sign in</a></li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
                     <!-- <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><i class="fas fa-spa"></i></span>Services</a> </li>
                     <li class="nav-item px-lg-2"> <a class="nav-link" href="index.html#about"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-user"></i></i></span>About</a> </li> -->
                 </ul>
@@ -53,24 +39,28 @@
             </div>
     </nav>
     
-        <!-- <div class="py-5 text-center text-white bg-primary">
-            <div class="container py-5"> -->
+  
                 <div class="row py-5" align="center">
                     <div class="mx-auto col-lg-10" style="margin-top:10%;">
-                        <h1 class="display-4 mb-4 ">International Business Communications Agency </h1>
-                            <p class="lead mb-5">The agency is ready to help you connect different countries to achieve the rapid growth of your business.<br>
-              
-                                 Any description can be here 
-                                 <!-- <p class="blink">
-                                    <span class="ru">Привет</span><span class="en">Hi there</span><span class="de">Guten tag</span>
-                                  </p> -->
-                            </p> 
-                            <button  id="myBtn" class="main_reg" onclick="open_modal_registration()">Registration</button>
+                      
+                        <h1 class="display-4 mb-4 ">RECOVERY PASSWORD</h1>
+                          <div class="recovery-block">
+                              <h4>Forgot your password?</h4>
+                              <p>
+                                Enter your email, under which you are registered on the site, and a message will be sent to it to recover the password                                 Enter your email, under which you are registered on the site, and a message will be sent to it to recover the password</p>
+
+                                <div class="form__group field" >
+                                <input type="input" class="form__field" placeholder="email">
+                                <label for="name" class="form__label" align="center">Email</label>
+
+                                <button class="send">Reset the password</button>
+                            </div>
+
+                          
+                            </div>
                     </div>
                 </div>
-            <!-- </div>
-        </div>
-     -->
+       
        
         <footer class="footer-distributed">
 
@@ -151,11 +141,8 @@
           </div>
       </div>
     </div>
-    
     {% endblock %}
 
     {% block lower_links %}{% endblock %}
-
-    <script src="{% static 'js/Main.js' %}"></script>
 </body>
 </html>

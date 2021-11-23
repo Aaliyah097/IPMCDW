@@ -6,3 +6,6 @@ from django.http import HttpResponse
 
 def enter_page(request):
     return render(request, 'index.html', context={})
+
+def recovery_page(request):
+    return render(request, 'recovery.html', context={})
