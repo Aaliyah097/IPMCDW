@@ -68,12 +68,12 @@ function open_modal_registration()
                   </div>
                 <div class="row clearfix">
                   <div class="col_half">
-                    <div class="input_field"> <span></span>
-                      <input type="number" name="postalcode" maxlength="6" id="postal_code"  placeholder="postal_code" />
+                    <div class="input_field">
+                      <input type="number" name="postalcode" maxlength="6" id="postal_code"  placeholder="Zip code" />
                     </div>
                   </div>
                   <div class="col_half">
-                    <div class="input_field"> <span><i class="fa fa-city"></i></span>
+                    <div class="input_field"> 
                       <input type="text" name="city" id="city" placeholder="City" />
                     </div>
                   </div>
@@ -83,7 +83,7 @@ function open_modal_registration()
                     </div>
                   </div>
                   <div class="col_half">
-                    <div class="input_field"> <span></span>
+                    <div class="input_field"><span><i class="fa fa-desktop" aria-hidden="true"></i></span>
                       <input type="text" name="website" id="website" placeholder="Website" />
                     </div>
                   </div>
@@ -98,7 +98,7 @@ function open_modal_registration()
                     </div>
                   </div>
                 </div>
-                <div class="input_field"> <span></span>
+                <div class="input_field"> <span><i class="fa fa-hashtag" aria-hidden="true"></i></span>
                     <input type="text" name="position" id="position" placeholder="Position in the company" />
                   </div>
                   <div class="input_field select_option">
@@ -110,7 +110,7 @@ function open_modal_registration()
                     </select>
                     <div class="select_arrow"></div>
                   </div>
-                  <div class="input_field"> <span></span>
+                  <div class="input_field"> <span><i class="fa fa-industry" aria-hidden="true"></i></span>
                     <input type="text" name="industry" id="industry" placeholder="Industry in which your company is working" />
                   </div>
                   

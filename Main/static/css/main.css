@@ -720,6 +720,7 @@ h3{
 .registration:hover{
     background-color:  rgb(175, 125, 15);
     color: #ffffff;
+    transition:0.5s;
 
 }
 .enter{
@@ -739,6 +740,7 @@ h3{
 .enter:hover{
     background-color: rgb(7, 168, 29);
     color: white;
+    transition:0.5s;
 }
 .restore
 {
@@ -756,6 +758,7 @@ h3{
 }
 .restore:hover{
     color: #000000;
+    transition:0.5s;
 }
 .nav-link{
 
@@ -776,6 +779,7 @@ h3{
   background-color: #000000;
   color: #ffffff;
   border: none;
+  transition:0.5s;
 }
 .main_reg{
   width: 60%;
@@ -789,6 +793,7 @@ h3{
 .main_reg:hover{
   background: #000000;
   color: #ffffff;
+  transition:0.5s;
 }
 /* Конец кнопок */
 
@@ -978,4 +983,7 @@ section {
 /* Конец подвала */
 .recovery-block{
   width: 50%;
+}
+.avatar{
+  width: 55%;
 }

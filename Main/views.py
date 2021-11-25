@@ -9,3 +9,6 @@ def enter_page(request):
 
 def recovery_page(request):
     return render(request, 'recovery.html', context={})
+
+def lk_page(request):
+    return render(request, 'lk.html', context={})
