@@ -40,7 +40,9 @@ h3{
   text-decoration: none!important;
 }
 .nav-link{
-  float: right !important;
+  /* float: right !important; */
+  padding-left: 50px;
+  color: green;
 }
 
 .modal-reg {
@@ -795,6 +797,24 @@ h3{
   color: #ffffff;
   transition:0.5s;
 }
+.save {
+  background: transparent;
+  border: 1px solid black;
+  outline: none;
+  padding: 5px 5px 5px 5px;
+  width: 25%;
+  font-family: "Montserrat", sans-serif;
+}
+.save:hover{
+  background-color: black;
+  border: none;
+  outline: none;
+  color: white;
+  transition: 0.5s;
+  padding: 5px 5px 5px 5px;
+
+}
+
 /* Конец кнопок */
 
 /* Подвал */
@@ -985,5 +1005,42 @@ section {
   width: 50%;
 }
 .avatar{
-  width: 55%;
+  width: 45%;
+}
+  textarea {
+    overflow: auto;
+  }
+.lk_navigation a{
+  text-decoration: none !important;
+  outline: none !important;
+  color: gray !important;
+  padding-left: 15px;
+}
+.lk_navigation a:hover{
+  text-decoration: none !important;
+  outline: none !important;
+  color: rgb(0, 0, 0) !important;
+  padding-left: 15px;
+}
+#all_company{
+  height: 350px;
+  margin-top: 7%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 25%;
+}
+#about_company{
+  border: 1px solid rgb(199, 199, 199) !important;
+ 
+}
+.about_company_mini img{
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 20% !important;
+  padding-top: 25px;
+}
+.about_company h4{
+  padding-top: 25px;
 }

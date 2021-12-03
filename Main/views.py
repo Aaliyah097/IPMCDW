@@ -12,3 +12,6 @@ def recovery_page(request):
 
 def lk_page(request):
     return render(request, 'lk.html', context={})
+
+def all_company_page(request):
+    return render(request, 'all_company.html', context={})
