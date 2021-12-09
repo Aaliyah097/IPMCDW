@@ -28,20 +28,16 @@
                     <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
                         <span class="navbar-toggler-icon"></span>
                      </button>
-            <div class="collapse navbar-collapse" id="navbar4">
-                <ul class="navbar-nav mr-auto pl-lg-4">
-                    <!-- <li class="nav-item px-lg-2">
-                         <a class="nav-link" href="#">{}</a> </li> -->
-                    <li class="nav-item">
-                         <a class="nav-link" href="/sign_out/"> Sign out</a></li>
-                    <!-- <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><i class="fas fa-spa"></i></span>Services</a> </li>
-                    <li class="nav-item px-lg-2"> <a class="nav-link" href="index.html#about"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-user"></i></i></span>About</a> </li> -->
-                </ul>
-        </div>
+
+                     <div class="lk_navigation">
+                        <a href="">All company</a>
+                        <a href="">Sign out</a>
+                     </div>
+
             </div>
     </nav>
                 <div class="row py-5" alisdgn="center">
-                    <div class="mx-auto col-lg-10" style="margin-top:10%;">
+                    <div class="mx-auto col-lg-10" style="margin-top:4%;">
                       
                        <h2 class="display-4 mb-4" align="center">Компания {{ user.company }} ( {{ user.status }} )</h2>
                        <div class="row">
@@ -71,26 +67,13 @@
                                {% else %}
                                    Business: NOT<br>
                                {% endif %}
-=                           </div>
+                           </div>
                            <div class="col-md-6">
 
                            </div>
 
                        </div>
-                           <!--  <div class="recovery-block">
-                              <h4>Forgot your password?</h4>
-                              <p>
-                                Enter your email, under which you are registered on the site, and a message will be sent to it to recover the password                                 Enter your email, under which you are registered on the site, and a message will be sent to it to recover the password</p>
-
-                                <div class="form__group field" >
-                                <input type="input" class="form__field" placeholder="email">
-                                <label for="name" class="form__label" align="center">Email</label>
-
-                                <button class="send">Reset the password</button>
-                            </div>
-
-                          
-                            </div> -->
+                       
                     </div>
                 </div>
        

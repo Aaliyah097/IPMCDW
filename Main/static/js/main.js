@@ -119,7 +119,6 @@ function open_modal_registration()
                   </div>
                   <div class="input_field select_option">
                     <select id="country">
-                      <option>Select a country</option>
                       <option>Russia</option>
                       <option>Italia</option>
                       <option>Germany</option>
@@ -128,6 +127,7 @@ function open_modal_registration()
                   </div>
                   <div class="input_field"> <span><i class="fa fa-map" aria-hidden="true"></i></span>
                     <input type="text" name="address" placeholder="Address" id="address"/>
+
                   </div>
                 <div class="row clearfix">
                   <div class="col_half">
@@ -142,9 +142,14 @@ function open_modal_registration()
                   </div>
                   <div class="col_half">
                     <div class="input_field"> <span><i class="fa fa-phone"></i></span>
-                      <input type="number" name="telephone" id="telephone" placeholder="Telephone" />
+                      <input type="number" name="telephone" id="telephone_1" placeholder="Telephone" />
                     </div>
                   </div>
+                  <div class="col_half">
+                  <div class="input_field"> <span><i class="fa fa-phone"></i></span>
+                    <input type="number" name="telephone" id="telephone_2" placeholder="Telephone" />
+                  </div>
+                </div>
                   <div class="col_half">
                     <div class="input_field"><span><i class="fa fa-desktop" aria-hidden="true"></i></span>
                       <input type="text" name="website" id="website" placeholder="Website" />
@@ -157,13 +162,16 @@ function open_modal_registration()
                   </div>
                   <div class="col_half">
                     <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                      <input type="text" name="lastname" id="last_name" placeholder="Last Name" />
+                      <input type="text" name="lastname" id="second_name" placeholder="Last Name" />
                     </div>
                   </div>
                 </div>
                 <div class="input_field"> <span><i class="fa fa-hashtag" aria-hidden="true"></i></span>
                     <input type="text" name="position" id="post" placeholder="Position in the company" />
                   </div>
+                  <div class="input_field"> <span><i class="fa fa-industry" aria-hidden="true"></i></span>
+                  <input type="text" name="industry" id="industry" placeholder="Industry in which your company is working" />
+                </div>
                   <div class="input_field select_option">
                     <select id="currency">
                       <option>Currency</option>
@@ -173,9 +181,7 @@ function open_modal_registration()
                     </select>
                     <div class="select_arrow"></div>
                   </div>
-                  <div class="input_field"> <span><i class="fa fa-industry" aria-hidden="true"></i></span>
-                    <input type="text" name="industry" id="industry" placeholder="Industry in which your company is working" />
-                  </div>
+                 
                   
                   <button class="main_reg" onclick="registration()">Registration</button>
             </div>

@@ -49,3 +49,4 @@ def sign_out(request):
         del request.session['token']
 
     return redirect("/")
+
