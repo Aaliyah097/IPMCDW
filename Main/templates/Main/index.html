@@ -1,4 +1,4 @@
-{%extends "Main/base.html"%}
+{%extends "base.html"%}
 {%load static%}
 
 <!doctype html>
@@ -11,6 +11,32 @@
     <title>{% block title %}IBCA | Вход{% endblock %}</title>
 </head>
 <body>
+    {% block pagecontent %}
+        {% csrf_token %}
+          <!-- <div class="py-5 text-center text-white bg-primary">
+            <div class="container py-5"> -->
+                <div class="row py-5" align="center">
+                    <div class="mx-auto col-lg-10" style="margin-top:10%;">
+                        <h1 class="display-4 mb-4 ">International Business Communications Agency </h1>
+                            <p class="lead mb-5">The agency is ready to help you connect different countries to achieve the rapid growth of your business.<br>
 
+                                 Any description can be here
+                                 <!-- <p class="blink">
+                                    <span class="ru">Привет</span><span class="en">Hi there</span><span class="de">Guten tag</span>
+                                  </p> -->
+
+                            </p>
+                            {% if is_authorized%}
+                                <a  id="myBtn" class="main_reg" href="sign_in/">Sign in</a>
+                            {% else %}
+                                <a  id="myBtn" class="main_reg" href="sign_up/">Sign up</a>
+                            {% endif %}
+
+                    </div>
+                </div>
+            <!-- </div>
+        </div>
+     -->
+    {% endblock %}
 </body>
 </html>

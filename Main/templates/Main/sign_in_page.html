@@ -1,0 +1,30 @@
+{%extends "base.html"%}
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}IBCA | Sign In{% endblock %}</title>
+</head>
+<body>
+    {% block pagecontent %}
+        <br>
+        <br>
+        <br>
+        <br>
+       <form method="post" id="sign_in_form">
+            {% csrf_token %}
+            Email
+            {{ form.email }}<br><br>
+            Password
+            {{ form.password }}
+            <input id="sign_in_button" type="submit" value="Send">
+       </form>
+        <br>
+        Do not have an account yet?
+        <a  id="myBtn"  href="/sign_up/">Sign up</a>
+
+    {% endblock %}
+</body>
+</html>
