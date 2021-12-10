@@ -1,4 +1,4 @@
-{%extends "Main/base.html"%}
+{%extends "base.html"%}
 {%load static%}
 
 <!doctype html>
@@ -28,33 +28,47 @@
                     <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
                         <span class="navbar-toggler-icon"></span>
                      </button>
+
                      <div class="lk_navigation">
                         <a href="">All company</a>
                         <a href="">Sign out</a>
                      </div>
-        </div>
+
             </div>
     </nav>
-    
-  
                 <div class="row py-5" alisdgn="center">
                     <div class="mx-auto col-lg-10" style="margin-top:4%;">
                       
-                       <h2 class="display-4 mb-4" align="center">Компания {%}</h2>
+                       <h2 class="display-4 mb-4" align="center">Компания {{ user.company }} ( {{ user.status }} )</h2>
                        <div class="row">
                            <div class="col-md-6">
-                               <img src="https://stanradar.com/upload/bio/original/1365887089_92723400.png" alt="" class="avatar">
+                               Firstname: {{ user.firstname }}<br>
+                               Lastname: {{ user.lastname }}<br>
+                               Country: {{ user.country }}<br>
+                               Address: {{ user.address }}<br>
+                               Zipcode: {{ user.zipcode }}<br>
+                               City: {{ user.city }}<br>
+                               Phone number: {{ user.phone_1 }}<br>
+                               Additional phone number: {{ user.phone_2 }}<br>
+                               Website: <a href="{{  user.website }}">{{  user.website }}</a><br>
+                               Post: {{ user.post }}<br>
+                               Industry: {{ user.industry }}<br>
+                               Balance: {{ user.balance }} ({{ user.currency }})<br>
+                               Views: {{ user.views_count }}<br>
+                               Description: {{ user.description }}<br>
+                               Created at: {{ user.created_at }}<br>
+                               {% if user.is_verified %}
+                                   Verified: OK<br>
+                               {% else %}
+                                   Verified: NOT<br>
+                               {% endif %}
+                                {% if user.is_business %}
+                                   Business: OK<br>
+                               {% else %}
+                                   Business: NOT<br>
+                               {% endif %}
                            </div>
                            <div class="col-md-6">
-                            <h4 align="right">{Имя пользователя + Фамилия}</h4>
-                            <p align="right">{Страна}</p>
-                            <p>{Описание профиля}</p>
-                            <div class="textarea"></div>
-                                <textarea name="" id="description" cols="70" rows="0" placeholder="About me" align="right"></textarea>
-                                <button class="save">Сохранить</button>
-                            </div>
-                            <p align="right">{Телефон} {Телефон} {Website}</p>
-                            
                            </div>
 
                        </div>
@@ -62,78 +76,6 @@
                     </div>
                 </div>
        
-       
-        <footer class="footer-distributed">
-
-			<div class="footer-left">
-
-				<h3>IPM<span>Group</span></h3>
-                
-				<p class="footer-links">
-
-					<a href="#" class="link-1">Home</a>
-
-					<a href="#">Blog</a>
-
-					<a href="#">Pricing</a>
-
-					<a href="#">About</a>
-
-					<a href="#">Faq</a>
-
-					<a href="#">Contact</a>
-
-				</p>
-
-				<p class="footer-company-name">IPM-GROUP © 2021</p>
-			</div>
-
-			<div class="footer-center">
-				<div>
-					<i class="fa fa-map-marker"></i>
-					<p><span>444 Bronnaya Plaza</span> Moscow, Russia</p>
-				</div>
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>+7 (999)-999-99-99</p>
-				</div>
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">support@company.com</a></p>
-				</div>
-			</div>
-
-			<div class="footer-right">
-				<p class="footer-company-about">
-					<span>About the company</span>
-					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
-				</p>
-
-                <div class="footer-icons">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
-					<a href="#"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</footer> 
-
-        <div id="Modal" class="modal">
-      <!-- Модальное содержание -->
-      <div class="modal-content" style="background-color: rgb(252, 252, 252);">
-              <span class="close" onclick="CloseModal()">&times;</span>
-          <div id="ModalTitle">
-    
-          </div>
-          <hr>
-          <div id="ModalBody">
-    
-          </div>
-          <div id="ModalButtons">
-    
-          </div>
-      </div>
-    </div>
     {% endblock %}
     {% block lower_links %}{% endblock %}
 </body>

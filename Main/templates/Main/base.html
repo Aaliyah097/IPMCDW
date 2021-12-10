@@ -21,14 +21,13 @@
 
     {% block upper_links %}{% endblock %}
 
-    <title>{% block title %}IBCA{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    {% csrf_token %}
 
-    {% block pagecontent %}
-  
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
-        <div class="container"> <a class="navbar-brand d-flex align-items-center" href="#">
+        <div class="container"> <a class="navbar-brand d-flex align-items-center" href="/">
             <svg width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
             <g>
             <g>
@@ -38,35 +37,25 @@
             </g>
             </g>
             </svg>
-                <span class="ml-3 font-weight-bold">&nbspIBCA</span>
-                <a> 
+                <a class="ml-3 font-weight-bold" href="/">&nbspIBCA</a>
+              
                     <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
                         <span class="navbar-toggler-icon"></span>
                      </button>
             <div class="collapse navbar-collapse" id="navbar4">
                 <ul class="navbar-nav mr-auto pl-lg-4">
-                    <li class="nav-item"> <a class="nav-link" href="" onclick="open_modal_signin()"><i class="fa fa-user-circle"></i> Sign in</a></li>
+                    {% if is_authorized%}
+                        <li class="nav-item"> <a class="nav-link" href="/sign_in/" ><i class="fa fa-user-circle"></i> Sign in</a></li>
+                    {% else %}
+                        <li class="nav-item"> <a class="nav-link" href="/sign_up/" ><i class="fa fa-user-circle"></i> Sign up</a></li>
+                    {% endif %}
                 </ul>
-        </div>
             </div>
-    </nav>
-    
-        <!-- <div class="py-5 text-center text-white bg-primary">
-            <div class="container py-5"> -->
-                <div class="row py-5" align="center">
-                    <div class="mx-auto col-lg-10" style="margin-top:10%;">
-                        <h1 class="display-4 mb-4 ">International Business Communications Agency </h1>
-                            <p class="lead mb-5">The agency is ready to help you connect different countries to achieve the rapid growth of your business.<br>
-                                 Any description can be here 
-                            </p> 
-                            <button  id="myBtn" class="main_reg" onclick="open_modal_registration()">Registration</button>
-                    </div>
-                </div>
-            <!-- </div>
         </div>
-     -->
-       
-        <footer class="footer-distributed">
+    </nav>
+
+
+        <footer class="footer-distributed" style="position: absolute; left: 0; bottom: 0">
 
 			<div class="footer-left">
 				<h3>IPM<span>Group</span></h3>
@@ -145,7 +134,9 @@
           </div>
       </div>
     </div>
-    
+
+    {% block pagecontent %}
+
     {% endblock %}
 
     {% block lower_links %}{% endblock %}

@@ -1044,3 +1044,62 @@ section {
 .about_company h4{
   padding-top: 25px;
 }
+
+#sign_up_form{
+  padding: 50px;
+  position: fixed; top: 30%; left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#sign_up_button{
+  background: transparent;
+  border: 1px solid black;
+  width: 100%;
+  padding: 3px 3px 3px 3px;
+}
+
+#sign_up_button:hover{
+  background: black;
+  color: white;
+  transition: 0.4s;
+}
+
+#sign_up_form input{
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 100% !important;
+}
+
+#sign_in_form{
+  padding: 50px;
+  position: fixed; top: 30%; left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#sign_in_button{
+  background: transparent;
+  border: 1px solid black;
+  width: 100%;
+  padding: 3px 3px 3px 3px;
+}
+#sign_in_button:hover{
+  background: black;
+  color: white;
+  transition: 0.4s;
+}
+
+#sign_in_form input{
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 100% !important;
+}
+
+
+
+a{
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
