@@ -10,11 +10,11 @@ from django.contrib.auth.models import AbstractUser
 
 class User(models.Model):
     STATUS_VARS = [
-        (1, 'visitor'),
-        (2, 'user'),
-        (3, 'premium'),
-        (4, 'vip'),
-        (4, 'admin'),
+        (1, 'Visitor'),
+        (2, 'User'),
+        (3, 'Premium'),
+        (4, 'Vip'),
+        (4, 'Admin'),
     ]
 
     CURRENCY_VARS = [
@@ -51,4 +51,4 @@ class User(models.Model):
         ordering = ['created_at']
 
     def __str__(self):
-        return self.first_name + " " + self.last_name + " " + self.company
+        return self.firstname + " " + self.lastname + f"{self.company}"
