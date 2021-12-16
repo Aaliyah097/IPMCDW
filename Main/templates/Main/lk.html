@@ -31,53 +31,559 @@
 
                      <div class="lk_navigation">
                         <a href="">All company</a>
-                        <a href="">Sign out</a>
+                        <a href="/">Sign out</a>
                      </div>
 
             </div>
-    </nav>
-                <div class="row py-5" alisdgn="center">
+    </nav>  
+
+    <div class="slider">
+      <div class="item">
+          <img src="https://llc-nnkholding.ru/images/main-slider/2.jpg" alt="Первый слайд">
+          <div class="slideText">Компания {{ user.company }}</div>
+      </div>
+  
+      <div class="item">
+          <img src="https://wallscloud.net/uploads/cache/3678064980/0566169366-1024x576-MM-90.jpg" alt="Второй слайд">
+          <div class="slideText">Компания {{ user.company }}</div>
+      </div>
+  
+      <div class="item">
+          <img src="https://img3.akspic.ru/originals/5/8/1/2/2/122185-avto-gruzovye_perevozki-trejler_telezhki_semi-trejler_telezhki-freightliner_gruzoviki-1920x1080.jpg" alt="Третий слайд">
+          <div class="slideText">Компания {{ user.company }}</div>
+      </div>
+  
+      <a class="prev" onclick="minusSlide()">&#10094;</a>
+      <a class="next" onclick="plusSlide()">&#10095;</a>
+  </div>
+  
+  <div class="slider-dots">
+      <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+      <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+      <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+  </div>
+  
+
+<!-- 
+<div class="main-picture">
+    
+    <img src="https://llc-nnkholding.ru/images/main-slider/2.jpg" alt="" >
+    <div class="name-company">Компания {{ user.company }} 
+    </div>
+
+
+</div> -->
+
+
+
+<!-- 
+                <div class="row py-5" align="center">
                     <div class="mx-auto col-lg-10" style="margin-top:4%;">
-                      
-                       <h2 class="display-4 mb-4" align="center">Компания {{ user.company }} ( {{ user.status }} )</h2>
-                       <div class="row">
+                        <p class="status_personal">{{ user.status }}</p> -->
+                       <!-- <h2 class="display-4 mb-4" align="center">Компания {{ user.company }}</h2> -->
+
+                        <!-- {%if user.status == 'qwe'%}
+                        qwdasgeshgs
+                        {%endif%} -->
+<br>
+                       <div class="row" style="margin-left: 2%;">
                            <div class="col-md-6">
-                               Firstname: {{ user.firstname }}<br>
-                               Lastname: {{ user.lastname }}<br>
-                               Country: {{ user.country }}<br>
-                               Address: {{ user.address }}<br>
-                               Zipcode: {{ user.zipcode }}<br>
-                               City: {{ user.city }}<br>
-                               Phone number: {{ user.phone_1 }}<br>
-                               Additional phone number: {{ user.phone_2 }}<br>
-                               Website: <a href="{{  user.website }}">{{  user.website }}</a><br>
-                               Post: {{ user.post }}<br>
-                               Industry: {{ user.industry }}<br>
-                               Balance: {{ user.balance }} ({{ user.currency }})<br>
-                               Views: {{ user.views_count }}<br>
-                               Description: {{ user.description }}<br>
-                               Created at: {{ user.created_at }}<br>
-                               {% if user.is_verified %}
-                                   Verified: OK<br>
-                               {% else %}
-                                   Verified: NOT<br>
-                               {% endif %}
-                                {% if user.is_business %}
-                                   Business: OK<br>
-                               {% else %}
-                                   Business: NOT<br>
-                               {% endif %}
+                            <div class="row">
+                                <div class="col-md-6">Firstname:{{ user.firstname }}</div>
+                                <div class="col-md-6">Lastname: {{ user.lastname }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">  Country: {{ user.country }}</div>
+                                <div class="col-md-6">Address: {{ user.address }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">Zipcode: {{ user.zipcode }}</div>
+                                <div class="col-md-6">City: {{ user.city }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">Phone number: {{ user.phone_1 }}</div>
+                                <div class="col-md-6"> Additional phone number: {{ user.phone_2 }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">Website: <a href="{{  user.website }}">{{  user.website }}</a></div>
+                                <div class="col-md-6"> Post: {{ user.post }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">Industry: {{ user.industry }}</div>
+                                <div class="col-md-6"> Balance: {{ user.balance }} ({{ user.currency }})</div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">Views: {{ user.views_count }}</div>
+                                <div class="col-md-6"> Description: {{ user.description }}</div>
+                            </div>
+                                     
+                            <div class="row">
+                                <div class="col-md-12"> Created at: {{ user.created_at }}<br>
+                                    {% if user.is_verified %}
+                                    Verified: OK<br>
+                                {% else %}
+                                    Verified: NOT<br>
+                                {% endif %}
+                                 {% if user.is_business %}
+                                    Business: OK<br>
+                                {% else %}
+                                    Business: NOT<br>
+                                {% endif %}</div>
+                                <br>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <button style="width: 30%;" class="Edit_profile" onclick="open_edit_profile()">Edit profile</button></div>
+                                    <div class="col-md-6">
+                                      <button style="width: 30%;" class="Edit_profile" onclick="save_edit_profile()">Save</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
                            </div>
+
+                          
                            <div class="col-md-6">
+
+
+
+                            <link href='https://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+                            <h1 align="center">News</h1>
+                            <div class="content">
+                                    
+
+                                    <div class="grid">
+                                      <figure class="effect-sadie">
+                                        <img src="https://tympanus.net/Development/HoverEffectIdeas/img/2.jpg" alt="img02"/>
+                                        <figcaption>
+                                          <h2>Hello<span>World</span></h2>
+                                          <p>Hello everyone <br>Welcome to IBCA</p>
+                                          <a href="#">View more</a>
+                                        </figcaption>     
+                                      </figure>
+                                      <figure class="effect-sadie">
+                                        <img src="https://tympanus.net/Development/HoverEffectIdeas/img/14.jpg" alt="img14"/>
+                                        <figcaption>
+                                          <h2>Market<span>IPM</span></h2>
+                                          <p>We need your money<br>And your soul</p>
+                                          <a href="#">View more</a>
+                                        </figcaption>     
+                                      </figure>
+                                    </div>
+                               
+                                  
+                      
+                                  </div>
+
+
+
+
 
                            </div>
 
                        </div>
-                       
-                    </div>
-                </div>
-       
+                       <style>
 
+.grid {
+  position: relative;
+  margin: 0 auto;
+  padding: 1em 0 4em;
+  max-width: 1000px;
+  list-style: none;
+  text-align: center;
+}
+
+/* Common style */
+.grid figure {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 320px;
+  max-width: 480px;
+  max-height: 360px;
+  width: 48%;
+  background: #3085a3;
+  text-align: center;
+  cursor: pointer;
+}
+
+.grid figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+  opacity: 0.8;
+}
+
+.grid figure figcaption {
+  padding: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+  pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.grid figure figcaption > a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
+}
+
+.grid figure h2 {
+  word-spacing: -0.15em;
+  font-weight: 300;
+}
+
+.grid figure h2 span {
+  font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+  margin: 0;
+}
+
+.grid figure p {
+  letter-spacing: 1px;
+  font-size: 68.5%;
+}
+
+
+
+/*---------------*/
+/***** Sadie *****/
+/*---------------*/
+
+figure.effect-sadie figcaption::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(top, rgba(72,76,97,0) 0%, rgba(72,76,97,0.8) 75%);
+  background: linear-gradient(to bottom, rgba(72,76,97,0) 0%, rgba(72,76,97,0.8) 75%);
+  content: '';
+  opacity: 0;
+  -webkit-transform: translate3d(0,50%,0);
+  transform: translate3d(0,50%,0);
+}
+
+figure.effect-sadie h2 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  color: #484c61;
+  -webkit-transition: -webkit-transform 0.35s, color 0.35s;
+  transition: transform 0.35s, color 0.35s;
+  -webkit-transform: translate3d(0,-50%,0);
+  transform: translate3d(0,-50%,0);
+}
+
+figure.effect-sadie figcaption::before,
+figure.effect-sadie p {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-sadie p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2em;
+  width: 100%;
+  opacity: 0;
+  -webkit-transform: translate3d(0,10px,0);
+  transform: translate3d(0,10px,0);
+}
+
+figure.effect-sadie:hover h2 {
+  color: #fff;
+  -webkit-transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
+  transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
+}
+
+figure.effect-sadie:hover figcaption::before ,
+figure.effect-sadie:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+
+
+@media screen and (max-width: 50em) {
+  .content {
+    padding: 0 10px;
+    text-align: center;
+  }
+  .grid figure {
+    display: inline-block;
+    float: none;
+    margin: 10px auto;
+    width: 100%;
+  }
+}
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { display: table; content: ''; }
+.clearfix:after { clear: both; }
+
+body {
+  background: #2f3238;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1em;
+  font-family: 'Raleway', Arial, sans-serif;
+}
+
+a {
+  outline: none;
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #528cb3;
+}
+
+section {
+  padding: 1em;
+  text-align: center;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.content > h2 {
+  clear: both;
+  margin: 0;
+  padding: 4em 1% 0;
+  color: #484B54;
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+.content > h2:first-child {
+  padding-top: 0em;
+}
+
+/* Header */
+.codrops-header {
+  margin: 0 auto;
+  padding: 4em 1em;
+  text-align: center;
+}
+
+.codrops-header h1 {
+  margin: 0;
+  font-weight: 800;
+  font-size: 4em;
+  line-height: 1.3;
+}
+
+.codrops-header h1 span {
+  display: block;
+  padding: 0 0 0.6em 0.1em;
+  color: #74777b;
+  font-weight: 300;
+  font-size: 45%;
+}
+
+/* Demo links */
+.codrops-demos {
+  clear: both;
+  padding: 1em 0 0;
+  text-align: center;
+}
+
+.content + .codrops-demos {
+  padding-top: 5em;
+}
+
+.codrops-demos a {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 1em 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.codrops-demos a:hover,
+.codrops-demos a:focus,
+.codrops-demos a.current-demo {
+  background: #3c414a;
+  color: #fff;
+}
+
+/* To Navigation Style */
+.codrops-top {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 0.69em;
+  line-height: 2.2;
+}
+
+.codrops-top a {
+  display: inline-block;
+  padding: 1em 2em;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.codrops-top span.right {
+  float: right;
+}
+
+.codrops-top span.right a {
+  display: block;
+  float: left;
+}
+
+.codrops-icon:before {
+  margin: 0 4px;
+  text-transform: none;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-family: 'codropsicons';
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.codrops-icon-drop:before {
+  content: "\e001";
+}
+
+.codrops-icon-prev:before {
+  content: "\e004";
+}
+
+/* Related demos */
+.related {
+  clear: both;
+  padding: 6em 1em;
+  font-size: 120%;
+}
+
+.related > a {
+  display: inline-block;
+  margin: 20px 10px;
+  padding: 25px;
+  border: 1px solid #4f7f90;
+  text-align: center;
+}
+
+.related a:hover {
+  border-color: #39545e;
+}
+
+.related a img {
+  max-width: 100%;
+  opacity: 0.8;
+}
+
+.related a:hover img,
+.related a:active img {
+  opacity: 1;
+}
+
+.related a h3 {
+  margin: 0;
+  padding: 0.5em 0 0.3em;
+  max-width: 300px;
+  text-align: left;
+}
+
+/* Demo ad design */
+body #cdawrap {
+  background: none;
+  top: 50px;
+  border: none;
+}
+
+body #cdawrap a {
+  color: #fff !important;
+}
+
+body #cda-remove {
+  color: #fff;
+}
+
+@media screen and (max-width: 25em) {
+  .codrops-header {
+    font-size: 75%;
+  }
+  .codrops-icon span {
+    display: none;
+  }
+}
+ </style>
+
+
+
+<script>
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+/* Функция увеличивает индекс на 1, показывает следующй слайд*/
+function plusSlide() {
+    showSlides(slideIndex += 1);
+}
+
+/* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
+function minusSlide() {
+    showSlides(slideIndex -= 1);  
+}
+
+/* Устанавливает текущий слайд */
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+/* Основная функция слайдера */
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("item");
+    var dots = document.getElementsByClassName("slider-dots_item");
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
+</script>
     {% endblock %}
     {% block lower_links %}{% endblock %}
 </body>

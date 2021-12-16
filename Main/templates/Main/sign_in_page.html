@@ -13,18 +13,24 @@
         <br>
         <br>
         <br>
-       <form method="post" id="sign_in_form">
-            {% csrf_token %}
-            Email
-            {{ form.email }}<br><br>
-            Password
-            {{ form.password }}
-            <input id="sign_in_button" type="submit" value="Send">
-       </form>
         <br>
-        Do not have an account yet?
-        <a  id="myBtn"  href="/sign_up/">Sign up</a>
+<h3 align="center">ENTER TO YOUR ACCOUNT</h3>
+       <form method="post" id="sign_in_form">
+        {% csrf_token %}
 
+    Email 
+    {{ form.email }}
+<br><br>
+    Password 
+    {{ form.password }}
+        
+    <br><br>
+        <input id="sign_up_button" type="submit" value="Send" style="margin-top: 3%;">
+        <p align="left" style="font-size: 13px; padding-top: 14px;">Do not have an account yet? <a id="myBtn" href="/sign_up/" >Sign up</a></p> 
+   </form>
+        <br>
+    
+    
     {% endblock %}
 </body>
 </html>

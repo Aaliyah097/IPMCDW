@@ -1,4 +1,6 @@
 from django import forms
+from django.forms import widgets
+from django.forms.widgets import Widget
 from .models import User
 from django.forms import ModelForm
 
@@ -9,7 +11,8 @@ class SignInForm(ModelForm):
         fields = ['email', 'password']
 
         widgets = {
-            'email': forms.TextInput(attrs={'class': 'form_wrapper'}),  # or whatever class you want to apply
+            'email': forms.TextInput(attrs={'class': 'sign_in_forms'}),  # or whatever class you want to apply
+            'password': forms.TextInput(attrs={'class': 'sign_in_forms'}),  # or whatever class you want to apply
         }
 
 
@@ -24,3 +27,9 @@ class EditProfileForm(ModelForm):
         model = User
         fields = ['phone_1', 'phone_2', 'website', 'post', 'firstname', 'lastname', 'industry',
                   'currency', 'description']
+
+        widgets = {
+            'email': forms.TextInput(attrs={'class': 'sign_up_forms'}),  # or whatever class you want to apply
+            'password': forms.TextInput(attrs={'class': 'sign_up_forms'}),  # or whatever class you want to apply
+        }
+

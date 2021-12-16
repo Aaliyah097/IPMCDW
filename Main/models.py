@@ -10,11 +10,11 @@ from django.contrib.auth.models import AbstractUser
 
 class User(models.Model):
     STATUS_VARS = [
-        (1, 'visitor'),
-        (2, 'user'),
-        (3, 'premium'),
-        (4, 'vip'),
-        (4, 'admin'),
+        (1, 'Visitor'),
+        (2, 'User'),
+        (3, 'Premium'),
+        (4, 'Vip'),
+        (4, 'Admin'),
     ]
 
     CURRENCY_VARS = [
