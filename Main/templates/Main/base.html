@@ -22,6 +22,10 @@
     {% block upper_links %}{% endblock %}
 
     <title>{% block title %}{% endblock %}</title>
+
+<style>
+    .field{border: 1px solid red;}
+    </style>
 </head>
 <body>
     {% csrf_token %}
@@ -120,7 +124,7 @@
  
 
     
-    <div id="Modal" class="modal">
+    <div id="Modal" class="modal">s
       <!-- Модальное содержание -->
       <div class="modal-content" style="background-color: rgb(252, 252, 252);">
               <span class="close" onclick="CloseModal()">&times;</span>

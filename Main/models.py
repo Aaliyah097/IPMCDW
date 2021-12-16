@@ -51,4 +51,4 @@ class User(models.Model):
         ordering = ['created_at']
 
     def __str__(self):
-        return self.first_name + " " + self.last_name + " " + self.company
+        return self.firstname + " " + self.lastname + f" ({self.company})"

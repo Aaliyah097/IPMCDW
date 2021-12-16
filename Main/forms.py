@@ -8,11 +8,19 @@ class SignInForm(ModelForm):
         model = User
         fields = ['email', 'password']
 
+        widgets = {
+            'email': forms.TextInput(attrs={'class': 'form_wrapper'}),  # or whatever class you want to apply
+        }
+
 
 class SignUpForm(ModelForm):
     class Meta:
         model = User
-        fields = ['email', 'password', 'company', 'country',
-                  'address', 'zipcode', 'city', 'phone_1',
-                  'website', 'firstname', 'lastname', 'post',
-                  'currency', 'industry']
+        fields = ['email', 'password']
+
+
+class EditProfileForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['phone_1', 'phone_2', 'website', 'post', 'firstname', 'lastname', 'industry',
+                  'currency', 'description']
