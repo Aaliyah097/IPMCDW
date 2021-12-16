@@ -1418,8 +1418,21 @@ body #cda-remove {
     display: none;
   }
 }
-.Edit_profile{
-  border: none;
-  outline: none;
-  font-style: sans-serif;
+
+.edit_profile_form{
+  outline: none !important;
+  border: 1px solid #f2f2f2;
+  background-color: transparent;
+  color: #f2f2f2;
+  font-weight: 100;
+  font-size: 16px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-family: Calibri;
+  float: right;
+  margin-right: 2%;
+}
+
+.edit_profile_form:active {
+  border: 10px solid #f2f2f2;
 }

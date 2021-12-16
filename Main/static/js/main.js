@@ -39,25 +39,6 @@ function open_modal_signin()
         //
         //     <a type="button" href="recovery/" class="restore">Forgot pass?</a>`;
 }
-function enterAccount(){
-    console.log("!")
-    csrf_token = $('input[name="csrfmiddlewaretoken"]').val();
-     $.ajax({
-         url: "/api/enter_account/",
-         method: "POST",
-         data: {
-             csrfmiddlewaretoken : csrf_token,
-             form : document.getElementById("sign_in_form")
-         },
-         success: function (data) {
-
-             console.log(data)
-         },
-         error(){
-             console.log("error");
-         }
-     })
-}
 
 $("#sign_in_form").submit(function (){
     event.preventDefault();
@@ -71,7 +52,7 @@ $("#sign_in_form").submit(function (){
             location.href =`/lk/${user_id}`;
         },
         error: function (response){
-            console.log(response);
+            document.getElementById("error_message").innerHTML = "Incorrect data, please check Your email and password";
         }
     });
     return false;
@@ -85,12 +66,10 @@ $("#sign_up_form").submit(function (){
         url: "/api/users/",
 
         success: function (response){
-            console.log(response);
-            //let user_id = response.id;
-            //location.href =`/lk/${user_id}`;
+            document.getElementById("error_message").innerHTML = "Then some steps with mail and a new page";
         },
         error: function (response){
-            console.log(response);
+            document.getElementById("error_message").innerHTML = "This email already in use, please provide another one";
         }
     });
     return false;

@@ -11,8 +11,8 @@ class SignInForm(ModelForm):
         fields = ['email', 'password']
 
         widgets = {
-            'email': forms.TextInput(attrs={'class': 'sign_in_forms'}),  # or whatever class you want to apply
-            'password': forms.TextInput(attrs={'class': 'sign_in_forms'}),  # or whatever class you want to apply
+            'email': forms.TextInput(attrs={'class': 'sign_in_forms'}),
+            'password': forms.TextInput(attrs={'class': 'sign_in_forms'}),
         }
 
 
@@ -26,10 +26,11 @@ class EditProfileForm(ModelForm):
     class Meta:
         model = User
         fields = ['phone_1', 'phone_2', 'website', 'post', 'firstname', 'lastname', 'industry',
-                  'currency', 'description']
+                  'currency', 'description', 'company', 'email']
 
         widgets = {
-            'email': forms.TextInput(attrs={'class': 'sign_up_forms'}),  # or whatever class you want to apply
-            'password': forms.TextInput(attrs={'class': 'sign_up_forms'}),  # or whatever class you want to apply
+            'email': forms.TextInput(attrs={'class': 'edit_profile_form'}),
+            'password': forms.TextInput(attrs={'class': 'edit_profile_form'}),
+            'company': forms.TextInput(attrs={'class': 'edit_profile_form'}),
         }
 

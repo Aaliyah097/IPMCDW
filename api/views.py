@@ -1,3 +1,5 @@
+import hashlib
+
 from django.shortcuts import render
 from rest_framework import generics
 from . import serializers
@@ -32,7 +34,6 @@ class UsersList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Generic
         return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
         return self.create(request, *args, **kwargs)
 
 
@@ -54,15 +55,13 @@ class UserDetail(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.Dest
 def enter_account(request):
     data = request.POST.dict()
 
-    print(data)
-
     password = data.get('password', None)
     email = data.get('email', None)
 
     try:
         user = models.User.objects.get(email=email, password=password)
         serializer = serializers.UserSerializer(user)
-        request.session['token'] = user.token
+        request.session['email'] = user.email
     except models.User.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
