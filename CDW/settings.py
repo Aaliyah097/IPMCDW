@@ -56,18 +56,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
-    'http://10.20.40.3:8000',
+    'http://localhost:8000',
 )
 
 CORS_ALLOWED_ORIGINS = [
-    'http://10.20.40.3:8000',
+    'http://localhost:8000',
 ]
 
-
 ROOT_URLCONF = 'CDW.urls'
-
 
 TEMPLATES = [
     {
