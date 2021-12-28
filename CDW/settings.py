@@ -62,7 +62,7 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8000',
+    'http://localhost:3000',
 ]
 
 ROOT_URLCONF = 'CDW.urls'
