@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'Main',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders',
+    #'corsheaders',
     'django_filters',
     'api.apps.ApiConfig',
     'django.contrib.admin',
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    #'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -140,47 +140,47 @@ USE_L10N = True
 
 USE_TZ = True
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000",
-]
-
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:8000",
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8000",
-]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost",
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "localhost",
-]
-
-CORS_ALLOW_METHODS = [
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-]
-
-CORS_ALLOW_HEADERS = [
-    "accept",
-    "accept-encoding",
-    "authorization",
-    "content-type",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-]
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:8000",
+# ]
+#
+# CORS_ORIGIN_WHITELIST = [
+#     "http://localhost:8000",
+# ]
+#
+# CSRF_TRUSTED_ORIGINS = [
+#     "http://localhost:8000",
+# ]
+#
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost",
+# ]
+#
+# CSRF_TRUSTED_ORIGINS = [
+#     "localhost",
+# ]
+#
+# CORS_ALLOW_METHODS = [
+#     "DELETE",
+#     "GET",
+#     "OPTIONS",
+#     "PATCH",
+#     "POST",
+#     "PUT",
+# ]
+#
+# CORS_ALLOW_HEADERS = [
+#     "accept",
+#     "accept-encoding",
+#     "authorization",
+#     "content-type",
+#     "dnt",
+#     "origin",
+#     "user-agent",
+#     "x-csrftoken",
+#     "x-requested-with",
+# ]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
