@@ -78,7 +78,7 @@ class User(models.Model):
 
 class ViewNote(models.Model):
     ip = models.GenericIPAddressField(max_length=50)
-    user_id = models.OneToOneField(User, on_delete=models.DO_NOTHING)
+    user_id = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
