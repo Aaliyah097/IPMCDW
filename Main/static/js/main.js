@@ -1,3 +1,8 @@
+let Modal = document.getElementById("Modal");
+let ModalTitle = document.getElementById("ModalTitle");
+let ModalBody = document.getElementById("ModalBody");
+let ModalButtons = document.getElementById("ModalButtons");
+
 $(document).ready(function () {
     if ($(window).width() > 991){
     $('.navbar-light .d-menu').hover(function () {
@@ -7,6 +12,20 @@ $(document).ready(function () {
         });
         }
     });
+
+function notify(title, body)
+{
+	document.getElementById("notify-show").style.display = "block";
+	document.getElementById("notify_title").innerHTML = title;
+	document.getElementById("notify_body").innerHTML = body;
+
+	setTimeout( function()
+	{
+		document.getElementById("notify-show").style.display = "none";
+	},
+	3000,
+)};
+
 
 function open_modal_signin()
 {
@@ -221,9 +240,63 @@ function CloseModal()
  }
 
 
- function requestUser(){
+ $("#edit_profile_form").submit(function () {
+     event.preventDefault();
+     console.log($(this).attr('action'), $(this).attr('method'), $(this).serialize());
+     csrf_token = $('input[name="csrfmiddlewaretoken"]').val();
+     $.ajax({
+         data: $(this).serialize(),
+         headers: {'X-CSRFToken': csrf_token},
+         type: $(this).attr('method'),
+         url: $(this).attr('action'),
 
- }
- function ddd(){
-   alert("H");
- }
+         success: function (response) {
+             console.log(response);
+             notify("Успешно!", "Данные обновлены");
+         },
+         error: function (response) {
+             console.log(response);
+             notify("Ошибка!", "Попробуйте снова или повторите попытку позднее");
+         }
+     });
+     return false;
+ });
+
+$(".company_block").click(function(){
+    location.href = $(this).attr('action')
+});
+
+function choose_industry(){
+    event.preventDefault();
+     console.log($(this).attr('action'), $(this).attr('method'), $(this).serialize());
+     csrf_token = $('input[name="csrfmiddlewaretoken"]').val();
+     $.ajax({
+         headers: {'X-CSRFToken': csrf_token},
+         type: "GET",
+         url: '/api/getIndustryChoice/',
+
+         success: function (response) {
+             console.log(response);
+             Modal.style.display = "block";
+             ModalTitle.innerHTML = 'Выберите отрасли:';
+
+             response.forEach((data)=>
+             {
+                console.log(data[1]);
+             });
+         },
+         error: function (response) {
+             console.log(response);
+             notify("Ошибка!", "Попробуйте снова или повторите попытку позднее");
+         }
+     });
+     return false;
+}
+
+
+function open_filter_board(){
+    document.getElementById("filter_board").style.display = "block";
+}
+function close_filter_board(){
+    document.getElementById("filter_board").style.display = "none";
+}

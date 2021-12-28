@@ -13,3 +13,10 @@ class UserSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class IndustrySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Industry
+        fields = '__all__'
+
+

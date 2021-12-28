@@ -1,9 +1,23 @@
+
 html {
     scroll-behavior: smooth;
   }
 .py-5{
   height: 100vh;
 }
+
+a{
+  color: #765BF6 !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: Calibri;
+}
+
+ul a{
+  font-size: 20px !important;
+}
+
 #Modal{
     width: 40%;
     height: 80vh;
@@ -884,6 +898,19 @@ h3{
   transition: 0.4s;
 }
 
+.custom_button{
+  background: green;
+  border: 1px solid black;
+  width: 100%;
+  padding: 3px 3px 3px 3px;
+}
+
+.custom_button:hover{
+  background: darkgreen;
+  color: white;
+  transition: 0.4s;
+}
+
 #sign_up_form input{
   border: 1px solid black;
   border-radius: 4px;
@@ -1421,18 +1448,140 @@ body #cda-remove {
 
 .edit_profile_form{
   outline: none !important;
-  border: 1px solid #f2f2f2;
+  border: 1px solid #000000;
   background-color: transparent;
-  color: #f2f2f2;
+  color: #000000;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-family: Calibri;
+  text-align: center;
+  float: right;
+}
+
+.edit_profile_form:focus{
+  border: 2px solid green;
+}
+
+.edit_profile_form_textarea:focus{
+  border: 2px solid green;
+}
+
+.edit_profile_form_textarea{
+  resize: none;
+  width: 350px;
+  height: 150px;
+  outline: none !important;
+  border: 1px solid #000000;
+  background-color: transparent;
+  color: #000000;
   font-weight: 100;
-  font-size: 16px;
+  font-size: 20px;
   padding: 2px 5px;
   border-radius: 5px;
   font-family: Calibri;
   float: right;
-  margin-right: 2%;
+  right: 0;
 }
 
-.edit_profile_form:active {
-  border: 10px solid #f2f2f2;
+#profile_footer{
+  margin-bottom: 10%;
+  text-align: center;
+  bottom: 0;
+  position: relative;
+  left: 50%;
+  transform: translate(-47%, 0);
+  position: fixed;
+
 }
+
+.data_box{
+  background-color: #F9FAFC;
+  border-radius:  20px;
+  padding: 5%;
+}
+
+.edit_profile_span{
+  font-family: Calibri;
+  float: right;
+  font-size: 18px;
+}
+
+.edit_profile_label{
+  font-family: Calibri;
+  float: left;
+  font-size: 18px;
+}
+
+.accept_button{
+  width: 200px;
+  height: 50px;
+  float: right;
+  font-family: Calibri;
+  font-weight: 400;
+  font-size: 18px;
+  color: white;
+  outline: none !important;
+  border: 0px transparent;
+  border-radius: 10px;
+  background-color: #327F2F;
+}
+
+.accept_button:hover{
+  background-color: #73b46d;
+}
+
+ #notify-show
+ {
+  display: none;
+  width: 400px;
+  background-color: #780EF9;
+  position: fixed;
+  z-index: 999;
+  top: 2em;
+  margin-top: 5%;
+  margin-left: 1%;
+  border-radius: 3px;
+  height: 100px;
+  margin-right: 2%;
+  float: right;
+   right: 0;
+   color: #f2f2f2;
+   text-align: center;
+   box-shadow: 0 3px 13px 0 #b8c0d0;
+
+   opacity: 0;
+  animation: ani 1s forwards;
+  }
+
+ @keyframes ani {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+ .company_block{
+   width: 80%;
+   margin-left: 10%;
+   height: 250px;
+   background-color: #F9FAFC;
+   border-radius: 10px;
+   margin-top: 1%;
+   padding: 1% 1%;
+   font-size: 16px;
+   box-shadow: 0 3px 13px 0 #b8c0d0;
+ }
+
+ .company_block:hover{
+   background-color: #f6f7f8;
+   cursor: pointer;
+ }
+
+ .pagination{
+   font-size: 18px;
+   font-family: Calibri;
+   letter-spacing: 10px;
+   background-color: transparent;
+   margin-left: 48%;
+   margin-top: 1%;
+ }

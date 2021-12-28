@@ -10,6 +10,8 @@ urlpatterns = [
     path('sign_up/', views.sign_up_page, name='sign_up_page'),
     path('lk/<int:pk>', views.lk, name='lk'),
     path('sign_out/', views.sign_out, name='sign_out'),
+    path('lk/edit_profile/<int:pk>', views.edit_profile_page, name='edit_profile_page'),
+    path('companies/', views.companies, name='companies'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

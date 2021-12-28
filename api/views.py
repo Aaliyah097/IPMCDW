@@ -66,3 +66,12 @@ def enter_account(request):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getIndustryChoice(request):
+    queryset = models.Industry.CHOICES
+    return Response(queryset)
+
+
+

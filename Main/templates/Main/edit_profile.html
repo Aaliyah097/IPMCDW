@@ -1,0 +1,82 @@
+{%extends "base.html"%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}IBCA | Профиль{% endblock %}</title>
+</head>
+<body>
+
+ {% block pagecontent %}
+
+        <br>
+        <br>
+        <br>
+
+        <form id="edit_profile_form" action="/api/users/{{ user.id }}/" method="put">
+          {% csrf_token %}
+            <div class="row">
+                <div class="col-md-4" style="padding-left: 3%;">
+                    <h2>Профиль ({{ user.get_status_display }})</h2><br>
+                    <h6>Персональные данные</h6>
+                    <div class="data_box">
+                        {{ form.firstname.label }}{{ form.firstname }}
+                        <hr>
+                        {{ form.lastname.label }}{{ form.lastname }}
+                        <hr>
+                        {{ form.email.label }}<span class="edit_profile_span">{{ user.email }}
+                        </span>
+                        <hr>
+                        Phone number {{ form.phone_1 }}
+                        <hr>
+                        Acc. created <sapn class="edit_profile_span">{{ user.created_at }}</sapn>
+                    </div>
+                    <br>
+                    <h6>Данные компании</h6>
+                    <div class="data_box">
+                        {{ form.company.label }}{{ form.company }}
+                        <hr>
+                        {{ form.website.label }}{{ form.website }}
+                        <hr>
+                        {{ form.industry.label }}{{ form.industry }}
+                        <hr>
+                        {{ form.address.label }} {{ form.zipcode }} <span class="edit_profile_span"> - </span> {{ form.address }}
+                        <hr>
+                        {{ form.country.label }}{{ form.country }}
+                        <hr>
+                        {{ form.currency.label }} {{ form.currency }}
+                        <hr>
+                        {{ form.post.label }}{{ form.post }}
+                        <hr>
+                        Phone number {{ form.phone_2 }}
+                        <hr>
+                        {{ form.description.label }} {{ form.description }}
+
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                    </div>
+                    <br>
+                    <input type="submit" value="Commit changes" class="accept_button">
+                </div>
+                <div class="col-md-8">
+
+                </div>
+            </div>
+        </form>
+
+     <br>
+     <br><br><br>
+     <br>
+     <br>
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+{% endblock %}
+
+
+
+</body>
+</html>

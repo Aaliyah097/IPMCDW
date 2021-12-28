@@ -1,4 +1,5 @@
 {%load static%}
+{% load l10n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,50 +50,32 @@
             <div class="collapse navbar-collapse" id="navbar4">
                 <ul class="navbar-nav mr-auto pl-lg-4">
                     {% if is_authorized%}
-                        <li class="nav-item"> <a class="nav-link" href="/sign_in/" ><i class="fa fa-user-circle"></i> Sign in</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/sign_out/" ><i class="fa fa-user-circle"></i> Sign out</a></li>
                     {% else %}
                         <li class="nav-item"> <a class="nav-link" href="/sign_up/" ><i class="fa fa-user-circle"></i> Sign up</a></li>
                     {% endif %}
                 </ul>
+                <ul class="navbar-nav mr-auto pl-lg-4">
+                    <a href="/companies">All companies</a>
+                </ul>
+                {% if is_owner == True %}
+                    <ul class="navbar-nav mr-auto pl-lg-4">
+                        <a href="/lk/edit_profile/{{ user.id }}">Edit profile</a>
+                    </ul>
+                {% else %}
+                {% endif %}
+                {% if is_authorized == True %}
+                    <ul class="navbar-nav mr-auto pl-lg-4">
+                        <a href="/lk/{{ user.id }}">Profile</a>
+                    </ul>
+                {% endif %}
             </div>
         </div>
     </nav>
 
-
-  
-
-
-    
-
-
-			<!-- <div class="footer-center">
-
-				<div>
-					<i class="fa fa-map-marker"></i>
-					<p><span>444555 Bronnaya Plaza</span> Moscow, Russia</p>
-				</div>
-
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>+7 999 999 99 99</p>
-				</div>
-
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">support@company.com</a></p>
-				</div>
-
-			</div> -->
-
-			
-
-	
- 
-
-    
-    <div id="Modal" class="modal">s
+    <div id="Modal" class="modal">
       <!-- Модальное содержание -->
-      <div class="modal-content" style="background-color: rgb(252, 252, 252);">
+      <div class="modal-content" style="background-color: #F8F9FA;">
               <span class="close" onclick="CloseModal()">&times;</span>
           <div id="ModalTitle">
     
@@ -107,21 +90,13 @@
       </div>
     </div>
 
+    <div id="notify-show" >
+        <div id="notify_title" style="font-size: 20px;"></div>
+        <div id="notify_body"></div>
+    </div>
     {% block pagecontent %}
 
     {% endblock %}
-<!-- <div class="container" style="position: absolute; left: 0;">
-    <div class="row">
-
-        <div class="col-md-1"><i class="fa fa-map-marker"></i></div>
-        <div class="col-md-1"><i class="fa fa-phone"></i></div>
-        <div class="col"><i class="fa fa-envelope"></i></div>
-        <div class="col">IPM</div>
-        
-    </div>
-</div> -->
-
-
 
 <footer class="footer">
     
@@ -139,18 +114,18 @@
 
 
 .footer {
-  position: absolute;
+  position: fixed;
     float: bottom;
     bottom: 0;
   width: 100%;
-  background: transparent;
   min-height: 100px;
   padding: 20px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-top: 1px solid rgb(255, 255, 255);
+  border-top: 0px solid rgb(255, 255, 255);
+    background-color: #6379DC;
 }
 .menu {
   position: relative;
@@ -182,6 +157,7 @@
 }
 
   </style>
+
     {% block lower_links %}{% endblock %}
 
     <script src="{% static 'js/Main.js' %}"></script>
