@@ -58,11 +58,11 @@ MIDDLEWARE = [
 ]
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8000',
+    'http://10.20.40.3:8000',
 )
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3030',
+    'http://10.20.40.3:8000',
 ]
 
 
