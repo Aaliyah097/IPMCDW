@@ -61,7 +61,7 @@ def lk(request, pk):
     user_ip = get_client_ip(request)
     try:
         note = ViewNote.objects.get(ip=user_ip, user_id=user.id)
-    except ViewNote.DoesNotExist:
+    except:
         User.objects.filter(id=user.id).update(views_count=F("views_count") + 1)
         note = ViewNote.objects.create(ip=user_ip, user_id=user)
         note.save()
