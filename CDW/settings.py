@@ -57,13 +57,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST = (
-#     'http://localhost:8000',
-# )
-#
-# CORS_ALLOWED_ORIGINS = [
-#     'http://localhost:3000',
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "http://10.20.40.3:8000",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://10.20.40.3:8000",
+]
 
 ROOT_URLCONF = 'CDW.urls'
 
