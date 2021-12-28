@@ -65,6 +65,35 @@ CSRF_TRUSTED_ORIGINS = [
     "http://10.20.40.3:8000",
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://10.20.40.3",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "10.20.40.3",
+]
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
 ROOT_URLCONF = 'CDW.urls'
 
 TEMPLATES = [
