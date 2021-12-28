@@ -49,9 +49,6 @@ def recovery_page(request):
 def lk(request, pk):
 
     user = User.objects.get(id=pk)
-    serializer = UserSerializer(user)
-    industry_serializer = IndustrySerializer(user.industry)
-    serializer.data['industry'] = industry_serializer
 
     is_owner = False
     is_authorized = False
