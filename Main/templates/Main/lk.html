@@ -30,7 +30,7 @@
                                 {% endif %}
                             </data>
                             <data id="profile_country" style="display: inline-block">
-                                <h6>{{ user.country }},</h6>
+                                <h6>{{ user.get_country_display }},</h6>
                             </data>
                             <data id="profile_is_business" style="display: inline-block">
                                 {% if user.is_business == True %}
