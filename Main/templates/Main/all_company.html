@@ -140,27 +140,24 @@
                      let data_place = document.getElementById("companies_list");
                      data_place.innerHTML = '';
 
-                     response.forEach((user)=>{
+                     response.forEach((f_user)=>{
                          data_place.innerHTML += `
                              <div class="row">
                                 <div class="col-md-12">
-                                    <div class="company_block" onclick="open_profile('/lk/${user.id}')" action="/lk/${user.id}">
+                                    <div class="company_block" onclick="open_profile('/lk/${f_user.id}')" action="/lk/${f_user.id}">
                                         <span style="font-size: 18px">
-                                            {% if user.is_business == True %}
-                                                {{ user.company }} {% trans 'Business acc.' %} <span style="float: right">{{ user.get_status_display }}, {% trans 'Views' %}: {{ user.views_count }}</span>
+                                            {% if f_user.is_business == True %}
+                                                ${f_user.company} {% trans 'Business acc.' %} <span style="float: right">{% trans 'Views' %}: ${ f_user.views_count }</span>
                                             {% else %}
-                                                {{ user.firstname }} {{ user.lastname }} ({{ user.company }}) {% trans 'Personal acc.' %} <span style="float: right">{{ user.get_status_display }}, {% trans 'Views' %}: {{ user.views_count }}</span>
+                                                ${ f_user.firstname } ${ f_user.lastname } (${ f_user.company }) {% trans 'Personal acc.' %} <span style="float: right">{% trans 'Views' %}: ${ f_user.views_count }</span>
                                             {% endif %}
                                         </span>
                                         <hr>
-                                        {% for ind in user.industry.all %}
-                                            #{{ ind }}
-                                        {% endfor %} {% trans 'in' %} {{ user.get_country_display }}
                                         <br>
                                         <br>
-                                        {% trans 'Email' %}: {{ user.email }}<br>
-                                        {% trans 'Website' %}: <a href="{{ user.website }}">{{ user.website }}</a><br><br>
-                                        {{ user.description }} <span style="float: right">{{ user.created_at }}</span>
+                                        {% trans 'Email' %}: ${ f_user.email }<br>
+                                        {% trans 'Website' %}: <a href="${ f_user.website }">${ f_user.website }</a><br><br>
+                                        ${ f_user.description }
                                     </div>
                                     </div>
                                 </div>
