@@ -1,11 +1,12 @@
 {%extends "base.html"%}
 {%load static%}
+{% load i18n%}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}IBCA | Sign In{% endblock %}</title>
+    <title>{% block title %}IBCA | {% trans 'Sign in' %}{% endblock %}</title>
 </head>
 <body>
     {% block pagecontent %}
@@ -14,19 +15,20 @@
         <br>
         <br>
         <br>
-<h3 align="center">ENTER TO YOUR ACCOUNT</h3>
+<h3 align="center">{% trans 'Enter to your account' %}</h3>
        <form method="post" id="sign_in_form">
         {% csrf_token %}
+    <br><br>
 
-    Email 
+    {% trans 'Email' %}
     {{ form.email }}
 <br><br>
-    Password 
+    {% trans 'Password' %}
     {{ form.password }}
         
     <br><br>
-        <input id="sign_up_button" type="submit" value="Send" style="margin-top: 3%;">
-        <p align="left" style="font-size: 13px; padding-top: 14px;">Do not have an account yet? <a id="myBtn" href="/sign_up/" >Sign up</a></p>
+        <input id="sign_up_button" type="submit" value="{% trans 'Send' %}" style="margin-top: 3%;">
+        <p align="left" style="font-size: 13px; padding-top: 14px;">{% trans 'Do not have an account yet' %}? <a id="myBtn" href="/sign_up/" >{% trans 'Sign up' %}</a></p>
        <p id="error_message" align="left" style="font-size: 13px; padding-top: 14px; color: #7e0c0c"></p>
    </form>
         <br>

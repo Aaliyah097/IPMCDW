@@ -1,5 +1,6 @@
 {%extends "base.html"%}
 {%load static%}
+{% load i18n%}
 
 <!doctype html>
 <html lang="en">
@@ -8,7 +9,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}IBCA | Личный кабинет{% endblock %}</title>
+    <title>{% block title %}IBCA | {% trans 'Profile' %}{% endblock %}</title>
 </head>
 <body>
     {% block pagecontent %}
@@ -26,7 +27,7 @@
                                 {% if user.is_business == True %}
                                     <h1>{{ user.company }}</h1>
                                 {% else %}
-                                    <h1>{{ user.firstname }} {{ user.lastname }}</h1> <h4>{{ user.post }} in {{ user.company }}</h4>
+                                    <h1>{{ user.firstname }} {{ user.lastname }}</h1> <h4>{{ user.post }} {% trans 'in' %} {{ user.company }}</h4>
                                 {% endif %}
                             </data>
                             <data id="profile_country" style="display: inline-block">
@@ -34,9 +35,9 @@
                             </data>
                             <data id="profile_is_business" style="display: inline-block">
                                 {% if user.is_business == True %}
-                                    <h6>Business acc.</h6>
+                                    <h6>{% trans 'Business acc.' %}</h6>
                                 {% else %}
-                                    <h6>Social acc.</h6>
+                                    <h6>{% trans 'Personal acc.' %}</h6>
                                 {% endif %}
                             </data>
                             <br>
@@ -52,7 +53,7 @@
                                 {% if user.description %}
                                     {{ user.description }}
                                 {% else %}
-                                    Hi! Welcome to our IBCA page!
+                                    {% trans 'Hi! Welcome to our IBCA page!' %}
                                 {% endif %}
                                 </h6>
                             </data>

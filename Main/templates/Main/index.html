@@ -1,5 +1,6 @@
 {%extends "base.html"%}
 {%load static%}
+{% load i18n%}
 
 <!doctype html>
 <html lang="en">
@@ -17,19 +18,16 @@
             <div class="container py-5"> -->
                 <div class="row py-5" align="center">
                     <div class="mx-auto col-lg-10" style="margin-top:10%;">
-                        <h1 class="display-4 mb-4 ">International Business Communications Agency </h1>
-                            <p class="lead mb-5">The agency is ready to help you connect different countries to achieve the rapid growth of your business.<br>
+                        <h1 class="display-4 mb-4 "> {% trans 'International Business Communications Agency' %}</h1>
+                            <p class="lead mb-5">{% trans 'The agency is ready to help you connect different countries to achieve the rapid growth of your business' %}.<br>
 
-                                 Any description can be here
-                                 <!-- <p class="blink">
-                                    <span class="ru">Привет</span><span class="en">Hi there</span><span class="de">Guten tag</span>
-                                  </p> -->
+                                 {% trans 'Any description can be here' %}
 
                             </p>
                             {% if is_authorized%}
-                                <a  id="myBtn" class="main_reg" href="sign_in/">Sign in</a>
+{#                                <a  id="myBtn" class="main_reg" href="sign_in/">Sign in</a>#}
                             {% else %}
-                                <a  id="myBtn" class="main_reg" href="sign_up/">Sign up</a>
+                                <a  id="myBtn" class="main_reg" href="sign_up/">{% trans 'Quick start' %}</a>
                             {% endif %}
 
                     </div>

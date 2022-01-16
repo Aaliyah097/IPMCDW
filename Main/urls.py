@@ -12,6 +12,7 @@ urlpatterns = [
     path('sign_out/', views.sign_out, name='sign_out'),
     path('lk/edit_profile/<int:pk>', views.edit_profile_page, name='edit_profile_page'),
     path('companies/', views.companies, name='companies'),
+    path('change_lang/', views.change_lang, name='change_lang'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

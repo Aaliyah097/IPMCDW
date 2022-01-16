@@ -1,5 +1,6 @@
 {%extends "Main/base.html"%}
 {%load static%}
+{% load i18n%}
 
 <!doctype html>
 <html lang="en">
@@ -8,7 +9,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}IBCA | Личный кабинет{% endblock %}</title>
+    <title>{% block title %}IBCA | {% trans 'All companies' %}{% endblock %}</title>
 </head>
 <body>
     {% block pagecontent %}
@@ -23,28 +24,30 @@
                 <br>
                 <br>
                 <div id="filter_board" style="display: none">
-                    <form id="filter_form" style="width: 80%; margin-left: 10%">
+                    <form id="filter_form" style="width: 80%; margin-left: 10%" method="get" action="/api/users/">
+                        {% csrf_token %}
                         <div class="row" >
                             <!---company, industry, country--->
                             <div class="col-md-3">
                                 <div style="display: inline-block; float: left;">
-                                    <span style="margin-right: 10px; font-size: 20px">{{ form.company.label }}:</span> {{ form.company }}
+                                    <span style="margin-right: 10px; font-size: 20px">{% trans 'Name' %}:</span> {{ form.company }}
                                 </div>
 
                             </div>
                             <div class="col-md-2">
                                  <div style="display: inline-block; float: left;">
-                                     <span style="margin-right: 10px; font-size: 20px">{{ form.industry.label }}:</span> {{ form.industry }}
+                                     <span style="margin-right: 10px; font-size: 20px">{% trans 'Industry' %}:</span> {{ form.industry }}
                                  </div>
                             </div>
                             <div class="col-md-2">
                                  <div style="display: inline-block; float: left;">
-                                     <span style="margin-right: 10px; font-size: 20px">{{ form.country.label }}:</span> {{ form.country }}
+                                     <span style="margin-right: 10px; font-size: 20px">{% trans 'Country' %}:</span> {{ form.country }}
                                  </div>
                             </div>
                             <div class="col-md-5">
                                 <div style="display: inline-block; float: right;">
-                                    <i class="fa fa-check" style="font-size: 36px; color: green; margin-right: 10px; cursor: pointer;"></i>
+{#                                    <i class="fa fa-check" style="font-size: 36px; color: green; margin-right: 10px; cursor: pointer;"></i>#}
+                                    <input type="submit" value="{% trans 'Send' %}" class="accept_filter">
                                     <i class="fa fa-times" style="font-size: 36px; color: red; cursor: pointer" onclick="close_filter_board()"></i>
                                  </div>
                             </div>
@@ -54,7 +57,7 @@
             </div>
         </div>
         </div>
-        <div class="data_list" style="height: 100vh; ">
+        <div class="data_list" style="height: 100vh; " id="companies_list">
             {% for user in users %}
                 <div class="row">
                     <div class="col-md-12">
@@ -62,19 +65,19 @@
 
                         <span style="font-size: 18px">
                             {% if user.is_business == True %}
-                                {{ user.company }} business acc. <span style="float: right">{{ user.get_status_display }}, views: {{ user.views_count }}</span>
+                                {{ user.company }} {% trans 'Business acc.' %} <span style="float: right">{{ user.get_status_display }}, {% trans 'Views' %}: {{ user.views_count }}</span>
                             {% else %}
-                                {{ user.firstname }} {{ user.lastname }} ({{ user.company }}) social acc. <span style="float: right">{{ user.get_status_display }}, views: {{ user.views_count }}</span>
+                                {{ user.firstname }} {{ user.lastname }} ({{ user.company }}) {% trans 'Personal acc.' %} <span style="float: right">{{ user.get_status_display }}, {% trans 'Views' %}: {{ user.views_count }}</span>
                             {% endif %}
                         </span>
                             <hr>
                             {% for ind in user.industry.all %}
                                 #{{ ind }}
-                            {% endfor %} in {{ user.country }}
+                            {% endfor %} {% trans 'in' %} {{ user.get_country_display }}
                         <br>
                         <br>
-                        Email: {{ user.email }}<br>
-                        Website: <a href="{{ user.website }}">{{ user.website }}</a><br><br>
+                        {% trans 'Email' %}: {{ user.email }}<br>
+                        {% trans 'Website' %}: <a href="{{ user.website }}">{{ user.website }}</a><br><br>
                         {{ user.description }} <span style="float: right">{{ user.created_at }}</span>
                         </div>
                     </div>
@@ -119,6 +122,70 @@
           </div>
       </div>
     </div>
+
+        <script>
+             $("#filter_form").submit(function () {
+             event.preventDefault();
+             console.log($(this).attr('action'), $(this).attr('method'), $(this).serialize());
+             csrf_token = $('input[name="csrfmiddlewaretoken"]').val();
+             $.ajax({
+                 data: $(this).serialize(),
+                 headers: {'X-CSRFToken': csrf_token},
+                 type: $(this).attr('method'),
+                 url: $(this).attr('action'),
+
+                 success: function (response) {
+                     console.log(response);
+
+                     let data_place = document.getElementById("companies_list");
+                     data_place.innerHTML = '';
+
+                     response.forEach((user)=>{
+                         data_place.innerHTML += `
+                             <div class="row">
+                                <div class="col-md-12">
+                                    <div class="company_block" onclick="open_profile('/lk/${user.id}')" action="/lk/${user.id}">
+                                        <span style="font-size: 18px">
+                                            {% if user.is_business == True %}
+                                                {{ user.company }} {% trans 'Business acc.' %} <span style="float: right">{{ user.get_status_display }}, {% trans 'Views' %}: {{ user.views_count }}</span>
+                                            {% else %}
+                                                {{ user.firstname }} {{ user.lastname }} ({{ user.company }}) {% trans 'Personal acc.' %} <span style="float: right">{{ user.get_status_display }}, {% trans 'Views' %}: {{ user.views_count }}</span>
+                                            {% endif %}
+                                        </span>
+                                        <hr>
+                                        {% for ind in user.industry.all %}
+                                            #{{ ind }}
+                                        {% endfor %} {% trans 'in' %} {{ user.get_country_display }}
+                                        <br>
+                                        <br>
+                                        {% trans 'Email' %}: {{ user.email }}<br>
+                                        {% trans 'Website' %}: <a href="{{ user.website }}">{{ user.website }}</a><br><br>
+                                        {{ user.description }} <span style="float: right">{{ user.created_at }}</span>
+                                    </div>
+                                    </div>
+                                </div>
+                             </div>
+                         `;
+                     })
+
+                 },
+                 error: function (response) {
+                     console.log(response);
+                     notify("Oops!", "Maybe try one more time...");
+                 }
+             });
+             return false;
+             });
+
+             function open_profile(url){
+                 console.log(location.href);
+                 let address = location.href.replace('/companies/', "");
+                 console.log(address);
+                 address += url;
+                 console.log(address);
+                 location.href = address;
+             }
+        </script>
 
     {% endblock %}
     {% block lower_links %}{% endblock %}

@@ -1,11 +1,12 @@
 {%extends "base.html"%}
 {%load static%}
+{% load i18n%}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}IBCA | Sign Up{% endblock %}</title>
+    <title>{% block title %}IBCA | {% trans 'Sign up' %}{% endblock %}</title>
 </head>
 <body>
     {% block pagecontent %}
@@ -13,20 +14,20 @@
         <br>
         <br>
         <br>
-        <h3 align="center">REGISTRATION</h3>
+        <h3 align="center">{% trans 'Registration' %}</h3>
        <form method="post" id="sign_up_form">
             {% csrf_token %}
-
-        Email 
+        <br><br>
+        {% trans 'Email' %}
         {{ form.email }}
 <br><br>
-        Password 
+        {% trans 'Password' %}
         {{ form.password }}
             
         <br><br>
-            <input id="sign_up_button" type="submit" value="Send" style="margin-top: 3%;">
-            <p align="left" style="font-size: 13px; padding-top: 14px;">Already have an account? <a id="myBtn" href="/sign_in/" >Sign in</a></p> 
-            <p>By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time.</p>
+            <input id="sign_up_button" type="submit" value="{% trans 'Send' %}" style="margin-top: 3%;">
+            <p align="left" style="font-size: 13px; padding-top: 14px;">{% trans 'Already have an account' %}? <a id="myBtn" href="/sign_in/" >{% trans 'Sign in' %}</a></p>
+            <p>{% trans 'By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time' %}</p>
             <p id="error_message" align="left" style="font-size: 13px; padding-top: 14px; color: #7e0c0c"></p>
        </form>
 

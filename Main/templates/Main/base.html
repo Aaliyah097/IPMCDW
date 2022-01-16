@@ -1,5 +1,6 @@
 {%load static%}
 {% load l10n %}
+{% load i18n%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,26 +48,47 @@
                     <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
                         <span class="navbar-toggler-icon"></span>
                      </button>
+
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input name="text" type="hidden" value="{{ redirect_to }}">
+                        <select name="language">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}\
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
+                                    selected {% endif %}>
+                                    {{ language.name_local }} ({{ language.code }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="Go">
+                    </form>
+{#                <select id="language" class="form-select" style="width: 70px; margin-left: 10px; font-size:14px;">#}
+{#                    <option>EN</option>#}
+{#                    <option>RU</option>#}
+{#                </select>#}
             <div class="collapse navbar-collapse" id="navbar4">
                 <ul class="navbar-nav mr-auto pl-lg-4">
                     {% if is_authorized%}
-                        <li class="nav-item"> <a class="nav-link" href="/sign_out/" ><i class="fa fa-user-circle"></i> Sign out</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/sign_out/" ><i class="fa fa-user-circle"></i> {% trans 'Sign out' %}</a></li>
                     {% else %}
-                        <li class="nav-item"> <a class="nav-link" href="/sign_up/" ><i class="fa fa-user-circle"></i> Sign up</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/sign_in/" ><i class="fa fa-user-circle"></i> {% trans 'Sign in' %}</a></li>
                     {% endif %}
                 </ul>
                 <ul class="navbar-nav mr-auto pl-lg-4">
-                    <a href="/companies">All companies</a>
+                    <a href="/companies">{% trans 'All companies' %}</a>
                 </ul>
                 {% if is_owner == True %}
                     <ul class="navbar-nav mr-auto pl-lg-4">
-                        <a href="/lk/edit_profile/{{ user.id }}">Edit profile</a>
+                        <a href="/lk/edit_profile/{{ user.id }}">{% trans 'Edit profile' %}</a>
                     </ul>
                 {% else %}
                 {% endif %}
                 {% if is_authorized == True %}
                     <ul class="navbar-nav mr-auto pl-lg-4">
-                        <a href="/lk/{{ user.id }}">Profile</a>
+                        <a href="/lk/{{ user.id }}">{% trans 'Profile' %}</a>
                     </ul>
                 {% endif %}
             </div>
@@ -101,9 +123,9 @@
 <footer class="footer">
     
     <ul class="menu">
-      <li class="menu__item"><a class="menu__link" href="#"><i class="fa fa-map-marker"></i></a></li>
-      <li class="menu__item"><a class="menu__link" href="#"><i class="fa fa-phone"></i></a></li>
-      <li class="menu__item"><a class="menu__link" href="#"><i class="fa fa-envelope"></i></a></li>
+      <li class="menu__item"><a class="menu__link" href=""><i class="fa fa-map-marker"></i></a></li>
+      <li class="menu__item"><a class="menu__link" href=""><i class="fa fa-phone"></i></a></li>
+      <li class="menu__item"><a class="menu__link" href=""><i class="fa fa-envelope"></i></a></li>
 
 
     </ul>
@@ -140,7 +162,7 @@
 }
 .menu__link {
   font-size: 1.2rem;
-  color: #fff;
+  color: #fff !important;
   margin: 0 10px;
   display: inline-block;
   transition: 0.5s;

@@ -1,12 +1,14 @@
 import json
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.http import HttpResponse
 from .models import User, Industry, ViewNote
 from .forms import SignInForm, SignUpForm, EditProfileForm, FilterUserForm
 from api.serializers import UserSerializer, IndustrySerializer
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import F
+from django.conf import settings
+from django.utils.translation import gettext as _
 from rest_framework.response import Response
 from rest_framework import status
 import requests
@@ -23,7 +25,10 @@ def get_client_ip(request):
 
 
 def enter_page(request):
-    context = {'is_authorized' : False}
+    # if 'lang' not in request.session:
+    #     request.session['lang'] = 'EN'
+
+    context = {'is_authorized': False}
     if 'email' in request.session:
         context['is_authorized'] = True
 
@@ -126,4 +131,12 @@ def companies(request):
     return render(request, 'all_company.html', {'users': users, 'is_owner': is_owner, 'user': user, 'is_authorized': is_authorized, 'form' : user_form})
 
 
+def change_lang(request):
+    lang = dict(request.POST)['lang'][0]
+
+    request.session['lang'] = lang
+
+    return HttpResponse(
+        json.dumps({}),
+        content_type="application/json")
 

@@ -13,6 +13,11 @@ $(document).ready(function () {
         }
     });
 
+$(".company_block").click(function(){
+    console.log($(this).attr('action'));
+    location.href = $(this).attr('action')
+});
+
 function notify(title, body)
 {
 	document.getElementById("notify-show").style.display = "block";
@@ -252,19 +257,15 @@ function CloseModal()
 
          success: function (response) {
              console.log(response);
-             notify("Успешно!", "Данные обновлены");
+             notify("Success!", "Data is updated");
          },
          error: function (response) {
              console.log(response);
-             notify("Ошибка!", "Попробуйте снова или повторите попытку позднее");
+             notify("Oops!", "Maybe try one more time...");
          }
      });
      return false;
  });
-
-$(".company_block").click(function(){
-    location.href = $(this).attr('action')
-});
 
 function choose_industry(){
     event.preventDefault();
@@ -300,3 +301,23 @@ function open_filter_board(){
 function close_filter_board(){
     document.getElementById("filter_board").style.display = "none";
 }
+
+ $("#language").change(function () {
+     let lang = $("#language").val();
+
+     csrf_token = $('input[name="csrfmiddlewaretoken"]').val();
+     $.ajax({
+         headers: {'X-CSRFToken': csrf_token},
+         type: "POST",
+         url: '/change_lang/',
+         data: {'lang': lang},
+
+         success: function (response) {
+                window.location.href = window.location.href;
+         },
+         error: function (response) {
+
+         }
+     });
+     return false;
+ });

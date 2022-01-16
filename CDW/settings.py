@@ -1,4 +1,5 @@
 import os
+from django.utils.translation import gettext_lazy as _
 """
 Django settings for CDW project.
 
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&s+m*nd683qo_i7!b)qml%c7u33xjvhn@e^22b2mua)$uv9@x@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '10.20.40.3']
 
@@ -32,6 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '10.20.40.3']
 # Application definition
 
 INSTALLED_APPS = [
+    #'modeltranslation',
     'Main',
     'rest_framework',
     'rest_framework.authtoken',
@@ -55,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'CDW.urls'
@@ -185,6 +188,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+gettext = lambda s: s
+LANGUAGES = (
+    ('ru', gettext('Russian')),
+    ('en', gettext('English')),
+)
+
+# LANGUAGES = [
+#     ('en', _('English')),
+#     ('ru', _('Russian')),
+# ]
+#
+# LANGUAGE_SESSION_KEY = 'session_language_Main'
+# LANGUAGE_COOKIE_NAME = 'cookie_language_Main'
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, '/Main/locale')
+]
+
 if DEBUG:
     STATIC_ROOT = "/static/"
     MEDIA_ROOT = os.path.join(BASE_DIR, "static/media")
@@ -196,6 +218,7 @@ if DEBUG:
     MEDIA_URL = '/media/'
 
     ADMIN_MEDIA_PREFIX = '/static/admin/'
+
 else:
     STATIC_ROOT = STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     MEDIA_ROOT = os.path.join(BASE_DIR, "static/media")

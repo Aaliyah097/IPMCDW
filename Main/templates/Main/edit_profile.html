@@ -1,10 +1,12 @@
 {%extends "base.html"%}
 {%load static%}
+{% load i18n%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}IBCA | Профиль{% endblock %}</title>
+    <title>{% block title %}IBCA | {% trans 'Edit profile' %}{% endblock %}</title>
 </head>
 <body>
 
@@ -18,47 +20,47 @@
           {% csrf_token %}
             <div class="row">
                 <div class="col-md-4" style="padding-left: 3%;">
-                    <h2>Профиль ({{ user.get_status_display }})</h2><br>
-                    <h6>Персональные данные</h6>
+                    <h2>{% trans 'Profile' %} ({{ user.get_status_display }})</h2><br>
+                    <h6>{% trans 'Personal info' %}</h6>
                     <div class="data_box">
-                        {{ form.firstname.label }}{{ form.firstname }}
+                        {% trans 'Firstname' %}{{ form.firstname }}
                         <hr>
-                        {{ form.lastname.label }}{{ form.lastname }}
+                        {% trans 'Lastname' %}{{ form.lastname }}
                         <hr>
-                        {{ form.email.label }}<span class="edit_profile_span">{{ user.email }}
+                        {% trans 'Email' %}<span class="edit_profile_span">{{ user.email }}
                         </span>
                         <hr>
-                        Phone number {{ form.phone_1 }}
+                        {% trans 'Phone number' %} {{ form.phone_1 }}
                         <hr>
-                        Acc. created <sapn class="edit_profile_span">{{ user.created_at }}</sapn>
+                        {% trans 'Created at' %} <sapn class="edit_profile_span">{{ user.created_at }}</sapn>
                     </div>
                     <br>
-                    <h6>Данные компании</h6>
+                    <h6>{% trans 'Company info' %}</h6>
                     <div class="data_box">
-                        {{ form.company.label }}{{ form.company }}
+                        {% trans 'Name' %}{{ form.company }}
                         <hr>
-                        {{ form.website.label }}{{ form.website }}
+                        {% trans 'Website' %}{{ form.website }}
                         <hr>
-                        {{ form.industry.label }}{{ form.industry }}
+                        {% trans 'Industry' %}{{ form.industry }}
                         <hr>
-                        {{ form.address.label }} {{ form.zipcode }} <span class="edit_profile_span"> - </span> {{ form.address }}
+                        {% trans 'Address' %} {{ form.zipcode }} <span class="edit_profile_span"> - </span> {{ form.address }}
                         <hr>
-                        {{ form.country.label }}{{ form.country }}
+                        {% trans 'Country' %}{{ form.country }}
                         <hr>
-                        {{ form.currency.label }} {{ form.currency }}
+                        {% trans 'Currency' %} {{ form.currency }}
                         <hr>
-                        {{ form.post.label }}{{ form.post }}
+                        {% trans 'Post' %}{{ form.post }}
                         <hr>
-                        Phone number {{ form.phone_2 }}
+                        {% trans 'Contact number' %} {{ form.phone_2 }}
                         <hr>
-                        {{ form.description.label }} {{ form.description }}
+                        {% trans 'Description' %} {{ form.description }}
 
                         <br><br>
                         <br><br>
                         <br><br>
                     </div>
                     <br>
-                    <input type="submit" value="Commit changes" class="accept_button">
+                    <input type="submit" value="{% trans 'Commit changes' %}" class="accept_button">
                 </div>
                 <div class="col-md-8">
 

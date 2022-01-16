@@ -1532,6 +1532,21 @@ body #cda-remove {
   background-color: #73b46d;
 }
 
+.accept_filter{
+  width: 100px;
+  height: 35px;
+  float: right;
+  margin-left: 5px;
+  font-family: Calibri;
+  font-weight: 400;
+  font-size: 18px;
+  color: white;
+  outline: none !important;
+  border: 0px transparent;
+  border-radius: 10px;
+  background-color: #327F2F;
+}
+
  #notify-show
  {
   display: none;
