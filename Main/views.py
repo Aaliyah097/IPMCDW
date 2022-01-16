@@ -31,6 +31,12 @@ def enter_page(request):
     context = {'is_authorized': False}
     if 'email' in request.session:
         context['is_authorized'] = True
+        user = User.objects.get(email=request.session['email'])
+        context['user'] = user
+
+        is_owner = False
+        if request.session['email'] == user.email:
+            is_owner = True
 
     return render(request, 'index.html', context)
 
@@ -116,8 +122,8 @@ def companies(request):
     if 'email' in request.session:
         is_authorized = True
         user = User.objects.get(email=request.session['email'])
-        if user:
-            is_owner = True
+        # if user:
+        #     is_owner = True
     else:
         user = None
 
